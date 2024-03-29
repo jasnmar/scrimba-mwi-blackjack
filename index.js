@@ -1,14 +1,15 @@
-let firstCard = 3;
-let secondCard = 9;
+// Check if the person is elegible for a birthday card from the King! (100)
 
-let sum = firstCard + secondCard;
+let age = 101
 
-if (sum < 21) {
-    console.log("Do you want a new card?");
-} else if (sum === 21) {
-    console.log("Yeah, you have 21");
+// if less than 100    -> "Not elegible"
+// else if exactly 100 -> "Here is your birthday card from the King!"
+// else                -> "Not elegible, you have already gotten one"
+
+if(age < 100) {
+    console.log("Not elegible")
+} else if (age === 100) {
+    console.log("Here is your birthday card from the King!")
 } else {
-    console.log("You have more than 21, busted")
+    console.log("Not elegible, you have already gotten one")
 }
-
-console.log(sum);
