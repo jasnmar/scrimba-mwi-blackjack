@@ -8,7 +8,10 @@ let message;
 
 function setupPage(){
     const sgBtn = document.getElementById('startGame');
+    const ncBtn = document.getElementById('new-card');
     sgBtn.addEventListener("click", startGame);
+    ncBtn.addEventListener("click", newCard);
+
 }
 setupPage();
 
@@ -30,4 +33,9 @@ function startGame(event) {
         isAlive = false
     }
     messageEl.textContent = message;
+}
+
+
+function newCard() {
+    console.log("Drawing a new card")
 }

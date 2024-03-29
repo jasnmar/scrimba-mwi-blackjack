@@ -21,5 +21,7 @@ button {
     background: goldenrod;
     border: 0;
     font-weight: bold;
+    padding: 6px 12px;
+    margin-top: 4px;
 
 }
