@@ -14,11 +14,13 @@ setupPage();
 
 const messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el");
+let cardsEl = document.getElementById("cards-el");
 
 function startGame(event) {
     event.preventDefault();
+    sumEl.textContent = "Sum: " + sum;
+    cardsEl.textContent = "Cards: " + firstCard + " " + secondCard;
     if (sum <= 20) {
-        sumEl.textContent = "Sum: " + sum;
         message = "Do you want to draw a new card?"
     } else if (sum === 21) {
         message = "You've got Blackjack!"
