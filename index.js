@@ -13,16 +13,18 @@ function setupPage(){
 setupPage();
 
 const messageEl = document.getElementById("message-el")
+let sumEl = document.getElementById("sum-el");
 
 function startGame(event) {
     event.preventDefault();
     if (sum <= 20) {
-        message = "Do you want to draw a new card? 🙂"
+        sumEl.textContent = "Sum: " + sum;
+        message = "Do you want to draw a new card?"
     } else if (sum === 21) {
-        message = "Wohoo! You've got Blackjack! 🥳"
+        message = "You've got Blackjack!"
         hasBlackJack = true
     } else {
-        message = "You're out of the game! 😭"
+        message = "You're out of the game!"
         isAlive = false
     }
     messageEl.textContent = message;
