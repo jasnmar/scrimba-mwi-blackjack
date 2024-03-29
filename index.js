@@ -1,38 +1,50 @@
-let firstCard = getRandomCard();
-let secondCard = getRandomCard();
-let cards = [firstCard, secondCard];
-let sum = firstCard + secondCard;
+let cards = [];
+let sum;
 let hasBlackJack = false;
-let isAlive = true;
+let isAlive = false;
 // 1. Declare a variable called message and assign its value to an empty string
 let message;
+let player = {
+  name: "jason",
+  chips: 145
+}
 
 function setupPage() {
   const sgBtn = document.getElementById("startGame");
   const ncBtn = document.getElementById("new-card");
-  sgBtn.addEventListener("click", renderGame);
+  sgBtn.addEventListener("click", startGame);
   ncBtn.addEventListener("click", newCard);
 }
 setupPage();
 
+function startGame(event) {
+  event.preventDefault();
+  isAlive = true;
+  let firstCard = getRandomCard();
+  let secondCard = getRandomCard();
+  cards = [firstCard, secondCard];
+  sum = firstCard + secondCard;
+  renderGame();
+
+}
+
 const messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
+const playerEl = document.getElementById("player-el")
+playerEl.textContent = player.name + ": $" + player.chips;
 
 function getRandomCard() {
   let newNumber = Math.floor( Math.random()*13 ) + 1
-  console.log(newNumber);
   if (newNumber>10) {
       newNumber=10
   } else if (newNumber === 1 ) {
       newNumber = 11;
   }
-  console.log(newNumber);
   return newNumber
 }
 
-function renderGame(event) {
-  event.preventDefault();
+function renderGame() {
   sumEl.textContent = "Sum: " + sum;
   cardsEl.textContent = "Cards: "
   for (let i=0; i< cards.length;i++) {
@@ -51,9 +63,12 @@ function renderGame(event) {
 }
 
 function newCard() {
-  console.log("Drawing a new card");
-  let newCard = getRandomCard();
-  sum += newCard;
-  cards.push(newCard);
-  renderGame();
+  if(isAlive && !hasBlackJack) {
+    console.log("Drawing a new card");
+    let newCard = getRandomCard();
+    sum += newCard;
+    cards.push(newCard);
+    renderGame();
+  }
+
 }
