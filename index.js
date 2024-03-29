@@ -12,8 +12,8 @@ function setupPage(){
 }
 setupPage();
 
-// 2. Create a startGame() function. Move the conditional
-// below (line 11-20) inside the body of the function.
+const messageEl = document.getElementById("message-el")
+
 function startGame(event) {
     event.preventDefault();
     if (sum <= 20) {
@@ -25,5 +25,5 @@ function startGame(event) {
         message = "You're out of the game! 😭"
         isAlive = false
     }
-    console.log(message)
+    messageEl.textContent = message;
 }
