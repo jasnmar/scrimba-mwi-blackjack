@@ -18,3 +18,11 @@ if (sum <= 20) {
 
 // 3. Log it out to check that you're doing it right
 console.log(isAlive)
+
+console.log(4 === 3)  // false
+console.log(5 > 2)    // true
+console.log(12 > 12)  // false
+console.log(3 < 0)    // false
+console.log(3 >= 3)   //  true
+console.log(11 <= 11) // true
+console.log(3 <= 2)   // false
