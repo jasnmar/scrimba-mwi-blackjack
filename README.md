@@ -20,3 +20,5 @@ Installation: Prod:
 none: Just download and run
 ```
 Deployment: https://elaborate-lolly-854900.netlify.app/
+
+Just a note... As a blackjack game, this is pretty silly. These are what the requirements were, it's not a very good game.
