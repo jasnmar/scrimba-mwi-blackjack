@@ -1,13 +1,19 @@
+// Global Variables
 let cards = [];
 let sum;
 let hasBlackJack = false;
 let isAlive = false;
-// 1. Declare a variable called message and assign its value to an empty string
 let message;
 let player = {
   name: "jason",
   chips: 145
 }
+
+const messageEl = document.getElementById("message-el");
+let sumEl = document.getElementById("sum-el");
+let cardsEl = document.getElementById("cards-el");
+const playerEl = document.getElementById("player-el")
+playerEl.textContent = player.name + ": $" + player.chips;
 
 function setupPage() {
   const sgBtn = document.getElementById("startGame");
@@ -20,19 +26,13 @@ setupPage();
 function startGame(event) {
   event.preventDefault();
   isAlive = true;
+  hasBlackJack = false;
   let firstCard = getRandomCard();
   let secondCard = getRandomCard();
   cards = [firstCard, secondCard];
   sum = firstCard + secondCard;
   renderGame();
-
 }
-
-const messageEl = document.getElementById("message-el");
-let sumEl = document.getElementById("sum-el");
-let cardsEl = document.getElementById("cards-el");
-const playerEl = document.getElementById("player-el")
-playerEl.textContent = player.name + ": $" + player.chips;
 
 function getRandomCard() {
   let newNumber = Math.floor( Math.random()*13 ) + 1
@@ -55,11 +55,14 @@ function renderGame() {
   } else if (sum === 21) {
     message = "You've got Blackjack!";
     hasBlackJack = true;
+    player.chips = player.chips + 5;
   } else {
     message = "You're out of the game!";
     isAlive = false;
+    player.chips = player.chips - 5;
   }
   messageEl.textContent = message;
+  playerEl.textContent = player.name + ": $" + player.chips;
 }
 
 function newCard() {
